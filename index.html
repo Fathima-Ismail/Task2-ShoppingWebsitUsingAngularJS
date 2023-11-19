@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html ng-app="myApp"> 
+<head> 
+ <meta charset="UTF-8"> 
+ <title>AngularJS Controllers and Templates</title> 
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  <script src="app.js"></script> 
+ <link rel="stylesheet" type="text/css" href="styles.css"> 
+</head> 
+<body ng-app="myApp" ng-controller="MyController"> 
+<header>
+ <h1>{{ title }}</h1> 
+</header>
+<div class="new-section">
+    <h3>New Arrivals</h3>
+    <p>Explore our latest additions and stay on trend with the newest fashion and accessories.</p>
+    <div class="new-products">
+        <div class="new-product">
+            <img src="StylishSneakers.jpg" alt="Stylish Sneakers">
+            <h4>Stylish Sneakers</h4>
+            <p>Step into the latest trends with our comfortable and fashionable sneakers.</p>
+        </div>
+        <div class="new-product">
+            <img src="ElegantDresses.png" alt="Elegant Dresses">
+            <h4>Elegant Dresses</h4>
+            <p>Discover the elegance of our new collection of dresses suitable for any occasion.</p>
+        </div>
+        <div class="new-product">
+            <img src="TrendyAccessories.png" alt="Trendy Accessories">
+            <h4>Trendy Accessories</h4>
+            <p>Complete your look with our stylish accessories, from hats to handbags.</p>
+        </div>
+    </div>
+    <a href="index.html" class="shop-now-button">Shop Now</a>
+</div>
+ <h2>{{ titlee }}</h2> 
+ <div class="container"> 
+ <div class="add-item-section"> 
+ <div class="form-container"> 
+ <form ng-submit="addItem()"> 
+ <div class="form-group"> 
+ <label for="itemName">Item Name:</label> 
+ <input type="text" id="itemName" ng-model="newItemName" required>  </div> 
+ <div class="form-group"> 
+ <label for="itemPrice">Item Price:</label> 
+ <input type="number" id="itemPrice" ng-model="newItemPrice" required>  </div> 
+ <div class="form-group"> 
+ <label for="itemImage">Image URL:</label> 
+ <input type="text" id="itemImage" ng-model="newItemImage" required>  </div> 
+ <button type="submit">Add Item</button> 
+ </form>
+ </div> 
+ </div> 
+ <div class="show-items-section"> 
+ <button class="toggle-button" ng-click="toggleList()"> Toggle Product List</button>  <div class="products" ng-show="showList"> 
+ <div class="product" ng-repeat="item in items"> 
+ <div class="image-container"> 
+ <img ng-src="{{ item.image }}" alt="{{ item.name }}"> 
+ </div> 
+ <div class="label-container"> 
+ <p>{{ item.name }} - {{ item.price | currency }}</p> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+ </div> 
+</body> 
+</html> 
